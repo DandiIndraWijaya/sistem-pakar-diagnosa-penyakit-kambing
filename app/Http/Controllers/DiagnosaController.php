@@ -11,8 +11,8 @@ class DiagnosaController extends Controller
 {
     public function diagnosa(Request $request){
         // gejala yang diinput pengguna
-        // $input_gejala = explode(',', $request->gejala);
-        $input_gejala = array('G001', 'G011', 'G023', 'G024', 'G025');
+        $input_gejala = explode(',', $request->inputGejala);
+        // $input_gejala = array('G001', 'G011', 'G023', 'G024', 'G025');
 
         // Memindahkan rule dari database ke array
         $rules = Rule::all();
