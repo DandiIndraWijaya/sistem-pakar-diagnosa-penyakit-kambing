@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
+
+import Home from './pages/home';
 
 const Index = () => {
     return (
-        <h2>Hello World</h2>
+        <BrowserRouter>
+            <Switch>
+                <Route exact path="/" component={Home} />
+            </Switch>
+        </BrowserRouter>
     )
 }
 
