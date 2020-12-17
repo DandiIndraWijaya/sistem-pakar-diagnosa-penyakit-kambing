@@ -9,7 +9,8 @@ const Index = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path="/" component={Diagnosis} />
+                <Route exact path="/" component={Home} />
+                <Route exact path="/diagnosis" component={Diagnosis} />
             </Switch>
         </BrowserRouter>
     )
