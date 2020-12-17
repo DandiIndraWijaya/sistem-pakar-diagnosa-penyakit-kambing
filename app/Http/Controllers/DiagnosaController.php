@@ -50,16 +50,38 @@ class DiagnosaController extends Controller
 
         // Mencocokan array input gejala dengan array rule
         foreach($array_rules as $array_rule){
-            if($array_rule->gejala == $input_gejala){
-                $id_penyakit = $array_rule->id;
 
-                 // Jika ditemukan, tampilkan informasi dan solusi dari penyakit
-                $penyakit = Penyakit::find($id_penyakit);
-        
-                return response()->json($penyakit, 201);
-            }else{
-                return response()->json(false, 201);
+            if(count($array_rule->gejala) == count($input_gejala)){
+                $total_sama = 0;
+                foreach($array_rule->gejala as $r){
+                    foreach($input_gejala as $i){
+                        if($r == $i){
+                            $total_sama += 1;
+                        }
+                    }
+                }
+
+                if($total_sama == count($array_rule->gejala)){
+                    $id_penyakit = $array_rule->id;
+                    // Jika ditemukan, tampilkan informasi dan solusi dari penyakit
+                   $penyakit = Penyakit::find($id_penyakit);
+           
+                   return response()->json($penyakit, 201);
+                }else{
+                    return response()->json(false, 201);
+                }
             }
+
+            // if($array_rule->gejala == $input_gejala){
+            //     $id_penyakit = $array_rule->id;
+
+            //      // Jika ditemukan, tampilkan informasi dan solusi dari penyakit
+            //     $penyakit = Penyakit::find($id_penyakit);
+        
+            //     return response()->json($penyakit, 201);
+            // }else{
+               
+            // }
         }
         
     }
