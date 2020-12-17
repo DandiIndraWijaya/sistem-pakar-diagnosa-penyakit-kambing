@@ -87071,9 +87071,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 var Diagnosis = function Diagnosis() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(["Allison", "Arthur", "Beryl", "Chantal", "Cristobal", "Danielle", "Dennis", "Ernesto", "Felix", "Fay", "Grace", "Gaston", "Gert", "Gordon"]),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState2 = _slicedToArray(_useState, 2),
       gejala = _useState2[0],
       setGejala = _useState2[1];
@@ -87109,7 +87108,14 @@ var Diagnosis = function Diagnosis() {
       });
     });
   }, []);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Navigation_navbar__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    style: {
+      marginTop: '100px'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Sayangi Kambing Anda :)"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    width: "150",
+    src: "https://image.freepik.com/free-vector/goat-cartoon-style_119631-178.jpg"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     style: {
       display: 'flex',
       justifyContent: 'center'
@@ -87118,41 +87124,19 @@ var Diagnosis = function Diagnosis() {
     searchable: true,
     showTags: true,
     multiSelect: true,
-    width: "500px",
+    width: "800px",
     onSelect: handleChange,
-    options: gejala
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", {
+    options: gejala,
+    searchPlaceholder: "Cari Gejala yang dialami kambing anda",
+    secondaryColor: "#17172b"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("center", {
     style: {
       marginTop: '20px'
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: handleClick
   }, "Diagnosa")));
-}; // class SearchBar extends React.Component {
-//   constructor(props) {
-//       super(props);
-//       this.state = {
-//         values: ["Allison","Arthur","Beryl","Chantal","Cristobal","Danielle","Dennis","Ernesto","Felix","Fay","Grace","Gaston","Gert","Gordon"]
-//       };
-//     }
-//     handleChange(params) {
-//       this.inputGejala = params;
-//       console.log(this.inputGejala);
-//     }
-//   //   handleChange = (arr) => {
-//   //     console.log(arr);
-//   //   }
-//     render() {
-//       return (
-//       <div>
-//           <div style={{display: 'flex', justifyContent: 'center'}}>
-//               <MultiSearchSelect searchable={true} showTags={true} multiSelect={true} width="500px" onSelect={this.handleChange} options={this.state.values}/>
-//           </div>
-//       </div>
-//       );
-//     }
-// }
-
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["withRouter"])(Diagnosis));
 

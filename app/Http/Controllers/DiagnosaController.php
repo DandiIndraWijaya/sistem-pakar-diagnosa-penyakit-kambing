@@ -52,12 +52,15 @@ class DiagnosaController extends Controller
         foreach($array_rules as $array_rule){
             if($array_rule->gejala == $input_gejala){
                 $id_penyakit = $array_rule->id;
+
+                 // Jika ditemukan, tampilkan informasi dan solusi dari penyakit
+                $penyakit = Penyakit::find($id_penyakit);
+        
+                return response()->json($penyakit, 201);
+            }else{
+                return response()->json(false, 201);
             }
         }
-
-        // Jika ditemukan, tampilkan informasi dan solusi dari penyakit
-        $penyakit = Penyakit::find($id_penyakit);
         
-        return response()->json($penyakit, 201);
     }
 }
