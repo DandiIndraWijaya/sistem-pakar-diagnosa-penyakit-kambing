@@ -9,5 +9,5 @@ class Rule extends Model
 {
     use HasFactory;
 
-    protected $table = 'tb_rule';
+    protected $table = 'rules';
 }

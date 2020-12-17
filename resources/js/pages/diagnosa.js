@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import MultiSearchSelect from "react-search-multi-select";
 import {Link, withRouter, useHistory} from 'react-router-dom';
 import Navbar from '../components/Navigation/navbar';
@@ -11,15 +11,16 @@ const Diagnosis = () => {
   const [inputGejala, setInputGejala] = useState([]);
 
   const handleChange = (params) => {
+    console.log(params)
     setInputGejala(params)
     // console.log(inputGejala);
   }
 
   const handleClick = () => {
-    let gejalaString = inputGejala.toString();
+    let inputGejalaString = inputGejala.toString();
     axios.post('/api/diagnosa',
       {
-        inputGejala: 'G001,G011,G023,G024,G025'
+        inputGejala: inputGejalaString
       }
     )
     .then(response => {
@@ -27,6 +28,21 @@ const Diagnosis = () => {
     })
   }
 
+  useEffect(() => {
+    axios.get('/api/gejala')
+    .then(response => {
+      // console.log(response.data);
+      let array_gejala = [];
+      let respon_gejala;
+      response.data.map(g => {
+        respon_gejala = g.kode_gejala + ' - ' + g.nama_gejala;
+        array_gejala.push(respon_gejala);
+
+        setGejala(array_gejala);
+      });
+    })
+  }, []);
+  
   return(
     <div>
         <div style={{display: 'flex', justifyContent: 'center'}}>

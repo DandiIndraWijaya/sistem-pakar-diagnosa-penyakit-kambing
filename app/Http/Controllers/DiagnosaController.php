@@ -5,14 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Rule;
 use App\Models\Penyakit;
+use App\Models\Gejala;
 use Illuminate\Support\Facades\DB;
 
 class DiagnosaController extends Controller
 {
+    public function gejala(){
+        $gejala = Gejala::all();
+
+        return response()->json($gejala, 201);
+    }
+
     public function diagnosa(Request $request){
         // gejala yang diinput pengguna
         $input_gejala = explode(',', $request->inputGejala);
-        // $input_gejala = array('G001', 'G011', 'G023', 'G024', 'G025');
+        // $input_gejala = array('G1', 'G2', 'G3', 'G4');
+        for($i = 0 ; $i < count($input_gejala) ; $i++){
+            $split_input_gejala = explode(' - ', $input_gejala[$i]);
+            $input_gejala[$i] = $split_input_gejala[0];
+        }
 
         // Memindahkan rule dari database ke array
         $rules = Rule::all();

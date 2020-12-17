@@ -87084,18 +87084,31 @@ var Diagnosis = function Diagnosis() {
       setInputGejala = _useState4[1];
 
   var handleChange = function handleChange(params) {
+    console.log(params);
     setInputGejala(params); // console.log(inputGejala);
   };
 
   var handleClick = function handleClick() {
-    var gejalaString = inputGejala.toString();
+    var inputGejalaString = inputGejala.toString();
     axios__WEBPACK_IMPORTED_MODULE_4___default.a.post('/api/diagnosa', {
-      inputGejala: 'G001,G011,G023,G024,G025'
+      inputGejala: inputGejalaString
     }).then(function (response) {
       console.log(response);
     });
   };
 
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    axios__WEBPACK_IMPORTED_MODULE_4___default.a.get('/api/gejala').then(function (response) {
+      // console.log(response.data);
+      var array_gejala = [];
+      var respon_gejala;
+      response.data.map(function (g) {
+        respon_gejala = g.kode_gejala + ' - ' + g.nama_gejala;
+        array_gejala.push(respon_gejala);
+        setGejala(array_gejala);
+      });
+    });
+  }, []);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     style: {
       display: 'flex',
@@ -87188,8 +87201,8 @@ var Home = function Home() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /media/dandi/Windows/xampp/htdocs/diagnosa-penyakit-kambing/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /media/dandi/Windows/xampp/htdocs/diagnosa-penyakit-kambing/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\diagnosa-penyakit-kambing\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\diagnosa-penyakit-kambing\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
