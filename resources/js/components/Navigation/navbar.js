@@ -28,6 +28,18 @@ const Navbar = () => {
                     <StyledLogo >
                         Diagnosa Penyakit Kambing
                     </StyledLogo>
+
+                    <Link to="/">
+                        <Button color="default" >
+                            <font style={{ color: "white" }}>Diagnosa</font>
+                        </Button>
+                    </Link>
+
+                    <Link to="/list_penyakit">
+                        <Button color="default" >
+                            <font style={{ color: "white" }}>Kenali Penyakit</font>
+                        </Button>
+                    </Link>
                 </ToolBar>
           </AppBar>
       </div>

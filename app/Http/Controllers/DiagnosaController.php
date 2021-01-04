@@ -71,18 +71,13 @@ class DiagnosaController extends Controller
                     return response()->json(false, 201);
                 }
             }
-
-            // if($array_rule->gejala == $input_gejala){
-            //     $id_penyakit = $array_rule->id;
-
-            //      // Jika ditemukan, tampilkan informasi dan solusi dari penyakit
-            //     $penyakit = Penyakit::find($id_penyakit);
-        
-            //     return response()->json($penyakit, 201);
-            // }else{
-               
-            // }
         }
         
+    }
+
+    public function list_penyakit(){
+        $list_penyakit = Penyakit::all();
+
+        return response()->json($list_penyakit, 201);
     }
 }

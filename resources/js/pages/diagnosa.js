@@ -74,9 +74,12 @@ const Diagnosis = () => {
       }
     )
     .then(response => {
+      console.log(response.data);
       setOpen(true)
       if(response.data !== false){
         setPenyakit(response.data);
+      }else{
+        setPenyakit(false);
       }
     })
   }
@@ -137,7 +140,7 @@ const Diagnosis = () => {
           <Fade in={open}>
             <div className={classes.paper}>
               {
-                penyakit !== false &&
+                penyakit != false &&
                 <div>
                   <center>
                     <h3>{penyakit.nama_penyakit}</h3>

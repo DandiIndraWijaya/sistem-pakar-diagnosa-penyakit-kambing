@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::view('/deskripsi_penyakit/{path?}', 'index');
+Route::view('/list_penyakit', 'index');

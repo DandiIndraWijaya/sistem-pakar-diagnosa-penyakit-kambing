@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/diagnosa', 'App\Http\Controllers\DiagnosaController@diagnosa');
 Route::get('/gejala', 'App\Http\Controllers\DiagnosaController@gejala');
+Route::get('/list_penyakit', 'App\Http\Controllers\DiagnosaController@list_penyakit');
